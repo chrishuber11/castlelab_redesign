@@ -1,0 +1,57 @@
+/* GLOBAL STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: black;
+    font-family: "Michroma", sans-serif;
+}
+header #line {
+    width: 20px;
+    height: 20px;
+}
+/* Navigation Bar */
+header nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Image Sizing */
+header #navhome_img {
+    width: 70px;
+    height: 82px;
+}
+header #navarchive_img {
+    width: 165px;
+    height: 80px;
+}
+header #navprojects_img {
+    width: 160px;
+    height: 80px;
+}
+header #navevents_img {
+    width: 140px;
+    height: 80px;
+}
+/* Image and text container */
+.container {
+    position: relative;
+    text-align: center;
+    color: black;
+    margin-right: 150px;
+  }
+/* Center text in image */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  /* Remove margin from right most container */
+  .container:last-child {
+    margin-right: 0;
+}
