@@ -1,6 +1,10 @@
-from django.urls import path,re_path
-from website import views
+from django.urls import path
+from . import views
+
 urlpatterns = [
-	re_path(r'^',views.index,name='index'),
-	]
+    path('', views.index, name='index'),
+    path('archive/', views.archive, name='archive'),
+    path('events/', views.events, name='events'),
+    path('projects/', views.projects, name='projects'),
+]
 

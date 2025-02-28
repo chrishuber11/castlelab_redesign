@@ -7,6 +7,7 @@
 
 body {
     font-family: "Michroma", sans-serif;
+    font-size: 1rem;
 }
 
 header #line {
@@ -18,14 +19,21 @@ header #line {
     height: 20px;
     margin: 20px 0;
 }
+
+#line3 {
+    width: 100%;
+    height: 5px;
+    margin: 20px 0;
+}
 /* Navigation Bar */
 header nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     font-family: "Micro 5", sans-serif;
     font-size: 1.2vw;
     color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin-bottom: 0;
     padding-bottom: 0;
 }
@@ -35,6 +43,7 @@ header nav {
 header #navhome_img {
     width: 75;
     height: 82px;
+    margin-bottom: 5px;
 }
 header #navarchive_img {
     width: 165px;
@@ -53,18 +62,14 @@ header #navevents_img {
     position: relative;
     text-align: center;
     color: black;
+  }
+.base{
     margin-right: 150px;
   }
-.social-bar {
-    position: relative;
-    text-align: center;
-    color: black;
+.social {
     margin-right: 120px;
 }
-.socialimg-spacing {
-    position: relative;
-    text-align: center;
-    color: black;
+.social-images {
     margin-right: 265px;
 }
 /* Center text in image */
@@ -206,7 +211,7 @@ header #navevents_img {
     margin-top: 20px;
 }
 
-#inline-spacing {
+#grid-spacing {
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -214,12 +219,10 @@ header #navevents_img {
     gap: 20px; 
 }
 
-#inline-spacing-title {
+#archivegrid-spacing {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    /* Space between containers */
-    gap: 450px; 
+    align-items: flex-start;  
 }
 
 #next-meeting {
@@ -282,4 +285,75 @@ header #navevents_img {
     font-size: .8vw;
     text-align: center;
     margin-top: 20px;
+}
+
+/* ARCHIVE SECTION */
+
+#archive-par {
+    color: white;
+    max-width: 90%;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2vw;
+}
+
+/* RECTANGLES */
+.rect-lander {
+    width: 1600px;
+    height: 700px;
+    background-color: #953FFF;
+    border: 4px solid black;
+}
+.rect-meet {
+    width: 1600px;
+    height: 300px;
+    background-color: #953FFF;
+    border: 4px solid black;
+}
+.rect-nextmeet {
+    width: 600px;
+    height: 300px;
+    background-color: #F3A00F;
+    border: 4px solid black;
+}
+.rect-submit {
+    width: 600px;
+    height: 300px;
+    background-color: #F3A00F;
+    border: 4px solid black;
+}
+
+.rect-archive1 {
+    width: 1600px;
+    height: 200px;
+    background-color: #953FFF;
+    border: 4px solid black;
+}
+
+.rect-past-talk {
+    width: 600px;
+    height: 250px;
+    background-color: #953FFF;
+    border: 4px solid black;
+}
+
+/* MEDIA FORMATTING */
+@media (max-width: 768px) {
+    .base {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    header nav .container {
+        flex: 1 1 100%;
+    }
+    #lander-logo {
+        width: 100%;
+        height: auto;
+    }
+    #meetings-section {
+        flex-direction: column;
+    }
+    body {
+        font-size: 0.9rem; /* slightly smaller for smaller screens */
+    }
 }

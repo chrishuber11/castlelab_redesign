@@ -1,3 +1,6 @@
+import os
+from pathlib import Path
+
 """
 Django settings for castlelab project.
 
@@ -116,7 +119,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -127,5 +129,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
 MEDIA_ROOT = '/home/cjh8/castlelab/media'
 MEDIA_URL = '/media/'
-STATIC_ROOT = '/home/cjh8/castlelab/static'
+BASE_DIR = Path(__file__).resolve().parent.parent
+STATIC_ROOT = (os.path.join(BASE_DIR, "website/static"),)
 STATIC_URL = '/static/'

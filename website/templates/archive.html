@@ -1,6 +1,6 @@
 <!-- HTML code under construction -->
 <!-- Work done by Christofer Huber -->
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -10,7 +10,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="..\static\styles\styles.css">
+        <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
         <link href="https://fonts.googleapis.com/css2?family=Micro+5&display=swap" rel="stylesheet">
 
         <!-- Use for setting up a font -->
@@ -26,23 +26,59 @@
             <div id="line"></div>
             <!-- Navigation Bar -->
             <nav>
-                <a href="index.html" class="container">
+                <a href="{% url 'index' %}" class="container base">
                     <img src="../static/images/castlealone.png" alt="Link to Home Page" id="navhome_img">
                 </a>                  
-                <a href="archive.html" class="container">
+                <a href="{% url 'archive' %}" class="container base">
                     <img src="../static/images/cloud5.png" alt="Link to Archive Page" id="navarchive_img">
                     <span class="centered">Archive</span>
                 </a>
-                <a href="projects.html" class="container">
+                <a href="{% url 'projects' %}" class="container base">
                     <img src="../static/images/cloud4.png" alt="Link to Projects Page" id="navprojects_img">
                     <span class="centered">Projects</span>
                 </a>
-                <a href="events.html" class="container">
+                <a href="{% url 'events' %}" class="container base">
                     <img src="../static/images/cloud3.png" alt="Link to Events Page" id="navevents_img">
                     <span class="centered">Events</span>
                 </a>
             </nav>
         </header>
-        <h1>THE ARCHIVE</h1>
+        <div id="lander" class="container base">
+            <div class="rect-archive1"></div>
+            <span class="title-centered">The Archive</span>
+            <p class="centered" id="archive-par">Welcome to the archive of past meetings held in the CASTLE Lab for extra information missed and to see useful links regarding student-led talks.</p>
+        </div>
+        <div id="line2"></div>
+        <!-- PAST TALKS -->
+        <div id="archivegrid-spacing">
+            <div class="container base" id="next-meeting">
+                <div class="rect-past-talk"></div>
+            </div>
+            <div class="container base" id="submit-talk">
+                <div class="rect-past-talk"></div>
+
+            </div>
+        </div>
+        <div id="line3"></div>
+        <div id="archivegrid-spacing">
+            <div class="container base" id="next-meeting">
+                <div class="rect-past-talk"></div>
+            </div>
+            <div class="container base" id="submit-talk">
+                <div class="rect-past-talk"></div>
+
+            </div>
+        </div>
+        <div id="line3"></div>
+        <div id="archivegrid-spacing">
+            <div class="container base" id="next-meeting">
+                <div class="rect-past-talk"></div>
+            </div>
+            <div class="container base" id="submit-talk">
+                <div class="rect-past-talk"></div>
+
+            </div>
+        </div>
+        <div id="line2"></div>
     </body>
 </html>
