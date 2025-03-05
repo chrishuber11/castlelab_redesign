@@ -19,7 +19,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet"> -->
     </head>
     <body>
-        
         <!-- HEADER/LOGO SECTION -->
         <header id="header-section">
             <!-- Spacing -->
@@ -102,12 +101,12 @@
             <div class="container base" id="next-meeting">
                 <span id="nextmeeting-title">Next Meeting</span>
                 <div class="rect-nextmeet"></div>
-                <span class="date-center" id="next-date">2/12/25</span>
-                <p class="titlelist-center" id="meetingtitle-list">
-                    Jailbreaking ChatGPT - Professor Beadle<br>
-                    VIM Text Editor Tutorial - Professor Beadle<br>
-                    PC Building Workshop - Chris Huber<br>
-                </p>
+                <span class="date-center" id="next-date"> {{ specific_date }} </span>
+                <ul class="titlelist-center" id="meetingtitle-list">
+                    {% for talk in talks %}
+                        <li>{{ talk.title }} by {{ talk.speaker }} on {{ talk.date }}</li>
+                    {% endfor %}
+                </ul>
 
             </div>
             <div class="container base" id="submit-talk">
