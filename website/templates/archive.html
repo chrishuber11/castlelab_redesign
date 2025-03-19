@@ -44,42 +44,33 @@
                 </a>
             </nav>
         </header>
-        <div id="lander" class="container base">
+        <div id="lander" class="container">
             <div class="rect-archive1"></div>
-            <span class="title-centered">The Archive</span>
-            <p class="centered" id="archive-par">Welcome to the archive of past meetings held in the CASTLE Lab for extra information missed and to see useful links regarding student-led talks.</p>
+            <span class="archtitle-centered">The Archive</span>
+            <p class="centered" id="archive-par">Welcome to the archive of past meetings held in the CASTLE Lab! Use this for extra information, catching up on what you missed or to see useful links regarding student-led talks.</p>
         </div>
         <div id="line2"></div>
         <!-- PAST TALKS -->
-        <div id="archivegrid-spacing">
-            <div class="container base" id="next-meeting">
-                <div class="rect-past-talk"></div>
+        {% for book, websites in archive_websites.items %}
+            {% if forloop.first or forloop.counter|divisibleby:2 %}
+            <div id="archivegrid-spacing">
+            {% endif %}
+                <div class="container arch" id="next-meeting">
+                    <div class="rect-past-talk"></div>
+                    <span class="title-centered">{{ book.date }} - {{ book.type }} Meeting</span>
+                    <p class="titlelist-center" id="meetingtitle-list"> {{book.description }} 
+                        {% if websites %}
+                            <br>Websites:
+                            {% for website in websites %}
+                                <br><a href="{{ website.url }}">{{ website.url }}</a>
+                            {% endfor %}
+                        {% endif %}
+                    </p>
+                </div>
+            {% if forloop.counter|divisibleby:2 or forloop.last %}
             </div>
-            <div class="container base" id="submit-talk">
-                <div class="rect-past-talk"></div>
-
-            </div>
-        </div>
-        <div id="line3"></div>
-        <div id="archivegrid-spacing">
-            <div class="container base" id="next-meeting">
-                <div class="rect-past-talk"></div>
-            </div>
-            <div class="container base" id="submit-talk">
-                <div class="rect-past-talk"></div>
-
-            </div>
-        </div>
-        <div id="line3"></div>
-        <div id="archivegrid-spacing">
-            <div class="container base" id="next-meeting">
-                <div class="rect-past-talk"></div>
-            </div>
-            <div class="container base" id="submit-talk">
-                <div class="rect-past-talk"></div>
-
-            </div>
-        </div>
+            {% endif %}
+        {% endfor %}
         <div id="line2"></div>
     </body>
 </html>

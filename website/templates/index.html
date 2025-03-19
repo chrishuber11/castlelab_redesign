@@ -102,12 +102,35 @@
             <div class="container base" id="next-meeting">
                 <span id="nextmeeting-title">Next Meeting</span>
                 <div class="rect-nextmeet"></div>
-                <span class="date-center" id="next-date"> {{ specific_date }} </span>
+                <span class="date-center" id="next-date">
+                    {% if meeting %}
+                        {{meeting.type}} Meeting on<br> {{ specific_date }} at {{ meeting.time|date:"P" }}
+                    {% else %}
+                        No meeting has been planned yet, stay tuned!
+                    {% endif %}
+                </span>
+                <ul class="titlelist-center" id="meetingtitle-list">
+                    {% if meeting.type == 'Speaker' %}
+                        {% for talk in talks %}
+                            {% if talk.date == meeting.date %}
+                                <p>{{ talk.title }} by {{ talk.speaker }}</p>
+                            {% endif %}
+                        {% endfor %}
+                        <!-- <p>Text here for a short desc of what Speaker is presenting</p> -->
+                    {% else %}
+                            {% for talk in talks %}
+                                {% if talk.date == meeting.date %}
+                                <li>{{ talk.title }} by {{ talk.speaker }}</li>
+                                {% endif %}
+                            {% endfor %}
+                    {% endif %}
+                </ul>
+                <!-- <span class="date-center" id="next-date"> {{ specific_date }} at {{ meetings.time|date:"P" }} </span>
                 <ul class="titlelist-center" id="meetingtitle-list">
                     {% for talk in talks %}
-                        <li>{{ talk.title }} by {{ talk.speaker }} on {{ talk.date }}</li>
+                        <li>{{ talk.title }} by {{ talk.speaker }}</li>
                     {% endfor %}
-                </ul>
+                </ul> -->
 
             </div>
             <div class="container base" id="submit-talk">
