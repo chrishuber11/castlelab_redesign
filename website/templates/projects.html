@@ -43,7 +43,46 @@
                     <span class="centered">Events</span>
                 </a>
             </nav>
-            <h1>PROJECTS</h1>
         </header>
+        <div id="lander" class="container">
+            <div class="rect-projects"></div>
+            <span class="archtitle-centered">Projects</span>
+            <p class="centered" id="archive-par">Students involved in CASTLE have many opportunities during their time in AU to experience and collaborate in projects. These projects are typically asked of by other AU faculty and students in need of programs for their problems which look great on a students resume. This page is one of many ways to keep in touch with the projects. Join the discord and attend meetings for your own chance to join in on these fun projects that will give you great opportunities to expand not only your coding knowledge, but your ability to work with a team!</p>
+        </div>
+        <div id="line2"></div>
+        <!-- PROJECTS -->
+        <div id="archivegrid-spacing">
+            {% for project in page_obj %}
+                <div class="container arch" id="project_grid">
+                    <div class="rect-proj"></div>
+                    <span class="title-centered">{{ project.title }} Project</span>
+                    {% if project.finish_date %}
+                        <span class="pdate-centered">Started on {{ project.start_date }}/ Finished on {{ project.finish_date }}</span>
+                    {% else %}
+                        <span class="pdate-centered">Started on {{ project.start_date }}</span>
+                    {% endif %}
+                    <p class="titlelist-center" id="meetingtitle-list">
+                        {{ project.description }}
+                        {% if project.github %}
+                            <br>Find the GitHub Here:
+                                <br><a href="{{ project.github }}">{{ project.github }}</a>
+                        {% endif %}
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+            {% endif %}
+        
+            <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+        
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Next</a>
+            {% endif %}
+        </div>
+        
+        <div id="line2"></div>
     </body>
 </html>

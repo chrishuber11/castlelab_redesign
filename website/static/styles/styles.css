@@ -8,6 +8,8 @@
 body {
     font-family: "Michroma", sans-serif;
     font-size: 1rem;
+    transform: scale(1);
+    
 }
 
 header #line {
@@ -66,11 +68,10 @@ header #navevents_img {
 .base{
     margin-right: 150px;
   }
-.arch{
-    width: 60%;
-    margin: 0 auto;
-    box-sizing: border-box;
-  }
+.arch {
+    margin: 10px 0; /* Adds a vertical margin to prevent overlap */
+}
+
 .social {
     margin-right: 120px;
 }
@@ -90,6 +91,18 @@ header #navevents_img {
     white-space: nowrap;
     position: absolute;
     top: 12%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    max-width: 90%; 
+    text-align: center; 
+    white-space: normal;
+  }
+.pdate-centered {
+    word-wrap: break-word;
+    white-space: nowrap;
+    position: absolute;
+    top: 18%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
@@ -174,6 +187,9 @@ header #navevents_img {
     margin-right: 0;
 }
 
+.pagination {
+    text-align: center;
+}
 
 #lander {
     color: white;
@@ -244,12 +260,33 @@ header #navevents_img {
 #archivegrid-spacing {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start; 
-    justify-content: space-between ;
-    margin-right: 67px;
-    margin-left: 36px;
+    justify-content: space-between; /* Equal spacing between rows and columns */
     gap: 20px;
+    margin: 0 auto; /* Center Container */
+}
+
+#archive_grid {
+    flex: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    box-sizing: border-box; 
+    width: 48%;
+}
+
+#project_grid {
+    flex: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    box-sizing: border-box; 
+    width: 98%;
 }
 
 #next-meeting {
@@ -261,7 +298,9 @@ header #navevents_img {
     margin: 0 20px;
     position: relative;
     text-align: center;
+    
 }
+
 #submit-talk {
     flex: 1;
     display: flex;
@@ -351,15 +390,40 @@ header #navevents_img {
 }
 
 .rect-archive1 {
-    width: 1600px;
+    margin-left: 50px;
+    margin-right: 50px;
+    width: 1800px;
     height: 200px;
     background-color: #953FFF;
     border: 4px solid black;
 }
 
 .rect-past-talk {
-    width: 700px;
+    width: 800px;
     height: 250px;
+    background-color: #953FFF;
+    border: 4px solid black;
+}
+
+.rect-projects {
+    margin-left: 50px;
+    margin-right: 50px;
+    width: 1800px;
+    height: 300px;
+    background-color: #953FFF;
+    border: 4px solid black;
+}
+
+.rect-proj {
+    width: 1400px;
+    height: 350px;
+    background-color: #953FFF;
+    border: 4px solid black;
+}
+
+.rect-event {
+    width: 700px;
+    height: 400px;
     background-color: #953FFF;
     border: 4px solid black;
 }
@@ -381,6 +445,10 @@ header #navevents_img {
         flex-direction: column;
     }
     body {
-        font-size: 0.9rem; /* slightly smaller for smaller screens */
+        font-size: 0.9rem;
+    }
+    .container.arch {
+        width: 100%; /* Full-width for smaller screens */
+        margin: 10px 0; /* Add vertical spacing between stacked containers */
     }
 }

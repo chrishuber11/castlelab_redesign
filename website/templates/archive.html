@@ -45,32 +45,41 @@
             </nav>
         </header>
         <div id="lander" class="container">
-            <div class="rect-archive1"></div>
+            <div class="rect-projects"></div>
             <span class="archtitle-centered">The Archive</span>
             <p class="centered" id="archive-par">Welcome to the archive of past meetings held in the CASTLE Lab! Use this for extra information, catching up on what you missed or to see useful links regarding student-led talks.</p>
         </div>
         <div id="line2"></div>
         <!-- PAST TALKS -->
-        {% for book, websites in archive_websites.items %}
-            {% if forloop.first or forloop.counter|divisibleby:2 %}
-            <div id="archivegrid-spacing">
-            {% endif %}
-                <div class="container arch" id="next-meeting">
+        <div id="archivegrid-spacing">
+            {% for book, websites in archive_websites.items %}
+                <div class="container arch" id="archive_grid">
                     <div class="rect-past-talk"></div>
                     <span class="title-centered">{{ book.date }} - {{ book.type }} Meeting</span>
-                    <p class="titlelist-center" id="meetingtitle-list"> {{book.description }} 
+                    <p class="titlelist-center" id="meetingtitle-list">
+                        {{ book.description }}
                         {% if websites %}
                             <br>Websites:
                             {% for website in websites %}
-                                <br><a href="{{ website.url }}">{{ website.url }}</a>
+                                <br><a href="{{ website.url }}">{{ website.name }}</a>
                             {% endfor %}
                         {% endif %}
                     </p>
                 </div>
-            {% if forloop.counter|divisibleby:2 or forloop.last %}
-            </div>
+            {% endfor %}
+        </div>
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
             {% endif %}
-        {% endfor %}
+        
+            <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+        
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Next</a>
+            {% endif %}
+        </div>
+        
         <div id="line2"></div>
     </body>
 </html>

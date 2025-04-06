@@ -118,11 +118,15 @@
                         {% endfor %}
                         <!-- <p>Text here for a short desc of what Speaker is presenting</p> -->
                     {% else %}
-                            {% for talk in talks %}
-                                {% if talk.date == meeting.date %}
-                                <li>{{ talk.title }} by {{ talk.speaker }}</li>
-                                {% endif %}
-                            {% endfor %}
+                            {% if talks %}
+                                {% for talk in talks %}
+                                    {% if talk.date == meeting.date %}
+                                        <li>{{ talk.title }} by {{ talk.speaker }}</li>
+                                    {% endif %}
+                                {% endfor %}
+                            {% else %}
+                                <p>Stop in for Student and Professor led talks!</p>
+                            {% endif %}
                     {% endif %}
                 </ul>
                 <!-- <span class="date-center" id="next-date"> {{ specific_date }} at {{ meetings.time|date:"P" }} </span>

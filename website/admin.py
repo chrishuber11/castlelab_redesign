@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Talk, Meeting, Website, Archive, Setting
+from .models import Talk, Meeting, Website, Archive, Setting, Project, Event
 
 @admin.register(Talk)
 class TalkAdmin(admin.ModelAdmin):
@@ -20,3 +20,11 @@ class TalkAdmin(admin.ModelAdmin):
 @admin.register(Setting)
 class TalkAdmin(admin.ModelAdmin):
     list_display = ('setting', 'description','toggle')
+
+@admin.register(Project)
+class TalkAdmin(admin.ModelAdmin):
+    list_display = ('title', 'start_date', 'finish_date', 'description', 'github')
+
+@admin.register(Event)
+class TalkAdmin(admin.ModelAdmin):
+    list_display = ('title', 'date', 'description', 'img')
