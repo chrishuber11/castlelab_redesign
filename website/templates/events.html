@@ -44,6 +44,40 @@
                 </a>
             </nav>
         </header>
-        <h1>EVENTS</h1>
+        <div id="lander" class="container">
+            <div class="rect-projects"></div>
+            <span class="archtitle-centered">Events</span>
+            <p class="centered" id="archive-par">Every year, CASTLE Lab alongside Axiom Club collaborate to host events for students. The events range from field trips, competitions to board games! To join yourself, join the CASTLE Lab discord or show up to weekly meetings. Anyone is welcome to compete!</p>
+        </div>
+        <div id="line2"></div>
+        <!-- EVENTS -->
+        <div id="archivegrid-spacing">
+            {% for event in page_obj %}
+                <div class="container arch" id="archive_grid">
+                    <div class="rect-event"></div>
+                    <span class="title-centered">{{ event.title }}</span>
+                    <span class="pdate-centered">{{ event.date }}</span>
+                    <p class="titlelist-center" id="meetingtitle-list">
+                        {{ event.description }}
+                        {% if event.img %}
+                            Image here
+                        {% endif %}
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+            {% endif %}
+        
+            <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+        
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Next</a>
+            {% endif %}
+        </div>
+        
+        <div id="line2"></div>
     </body>
 </html>

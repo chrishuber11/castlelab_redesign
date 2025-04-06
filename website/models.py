@@ -89,3 +89,26 @@ class Setting(models.Model):
 
     def __str__(self):
         return f"{self.setting}, Description: {self.description}, Toggled: {self.toggle}"
+    
+class Project(models.Model):
+    title = models.CharField(max_length=50)
+    start_date = models.DateField()
+    finish_date = models.DateField(blank=True, null=True)
+    description = models.CharField(blank=True, max_length=400)
+    github = models.URLField(blank=True)
+    
+    class Meta:
+        db_table = 'projects'
+    def __str__(self):
+        return f"{self.title} Project"
+
+class Event(models.Model):
+    title = models.CharField(max_length=50)
+    date = models.DateField()
+    description = models.CharField(max_length=400)
+    img = models.ImageField(upload_to='photos/', blank=True, null=True)
+    
+    class Meta:
+        db_table = 'events'
+    def __str__(self):
+        return f"{self.title} Event"

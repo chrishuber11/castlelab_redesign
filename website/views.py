@@ -1,19 +1,15 @@
 from django import forms
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Talk, Meeting, Archive, Website
+from .models import Talk, Meeting, Archive, Website, Project, Event
 from datetime import datetime
-import sqlite3
-# class EntryForm(forms.ModelForm):
-#     class Meta:
-#         model = Talk
-#         fields = ['title', 'speaker']
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def index(request):
     current_date = datetime.now().date()
     print('It is ' + str(current_date))
     specific_date = '2025-03-18'  # Replace with the desired date
-    #1 is current, 2 is specified
+    #1 is current, 2 is specified, 3 is next up
     use = 3
     if use == 1:
         meeting = Meeting.objects.filter(date=current_date).first()
@@ -36,17 +32,65 @@ def index(request):
             print("No upcoming meetings found.")
         return render(request, 'index.html', {'talks': talks, 'specific_date': next_available_date, 'meeting':meeting})
 
-
-
 def archive(request):
-    archives = Archive.objects.all()
-    archive_websites = {
-        book: Website.objects.filter(meeting_date=book.date) for book in archives
-    }
-    return render(request, 'archive.html', {'archive_websites':archive_websites})
+    archives = Archive.objects.all().order_by('-date') 
+    # Pagination
+    per_page = 8  # Number of meetings per page
+    paginator = Paginator(archives, per_page)
+    page_number = request.GET.get('page', 1)  # Get the current page number
 
-def events(request):
-    return render(request, 'events.html')
+    try:
+        page_obj = paginator.page(page_number)
+    except PageNotAnInteger:
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        page_obj = paginator.page(paginator.num_pages)
+
+    # Create a dictionary for archive websites limited to the current page
+    archive_websites = {
+        book: Website.objects.filter(meeting_date=book.date) for book in page_obj
+    }
+
+    return render(request, 'archive.html', {'archive_websites': archive_websites, 'page_obj': page_obj})
 
 def projects(request):
-    return render(request, 'projects.html')
+    projects = Project.objects.all().order_by('-start_date') 
+    # Pagination
+    per_page = 4  # Number of meetings per page
+    paginator = Paginator(projects, per_page)
+    page_number = request.GET.get('page', 1)  # Get the current page number
+
+    try:
+        page_obj = paginator.page(page_number)
+    except PageNotAnInteger:
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        page_obj = paginator.page(paginator.num_pages)
+
+    # Create a dictionary for archive websites limited to the current page
+    # project_dict = {
+    #     project: Project.objects.filter(start_date=project.start_date) for project in page_obj
+    # }
+
+    return render(request, 'projects.html', {'page_obj': page_obj})
+
+def events(request):
+    events = Event.objects.all().order_by('-date') 
+    # Pagination
+    per_page = 6  # Number of meetings per page
+    paginator = Paginator(events, per_page)
+    page_number = request.GET.get('page', 1)  # Get the current page number
+
+    try:
+        page_obj = paginator.page(page_number)
+    except PageNotAnInteger:
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        page_obj = paginator.page(paginator.num_pages)
+
+    # Create a dictionary for archive websites limited to the current page
+    # event_dict = {
+    #     events: Event.objects.filter(date=event.date) for event in page_obj
+    # }
+
+    return render(request, 'events.html', {'page_obj': page_obj})
