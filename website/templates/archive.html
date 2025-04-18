@@ -27,44 +27,63 @@
             <div id="line"></div>
             <!-- Navigation Bar -->
             <nav>
-                <a href="{% url 'index' %}" class="container base">
-                    <img src="../static/images/castlealone.png" alt="Link to Home Page" id="navhome_img">
-                </a>                  
-                <a href="{% url 'archive' %}" class="container base">
-                    <img src="../static/images/cloud5.png" alt="Link to Archive Page" id="navarchive_img">
-                    <span class="centered">Archive</span>
-                </a>
-                <a href="{% url 'projects' %}" class="container base">
-                    <img src="../static/images/cloud4.png" alt="Link to Projects Page" id="navprojects_img">
-                    <span class="centered">Projects</span>
-                </a>
-                <a href="{% url 'events' %}" class="container base">
-                    <img src="../static/images/cloud3.png" alt="Link to Events Page" id="navevents_img">
-                    <span class="centered">Events</span>
-                </a>
+                <div class="spacing nav-row">
+                    <div class="container nav-text">
+                        <a href="{% url 'index' %}">
+                            <img src="../static/images/castlealone.png" alt="Link to Home Page" id="navhome_img">
+                        </a>
+                    </div>
+                    <div class="container nav-text">
+                        <a href="{% url 'archive' %}" class="container nav-text">
+                            <img src="../static/images/cloud5.png" alt="Link to Archive Page" id="navarchive_img">
+                            <span class="centered">Archive</span>
+                        </a>
+                    </div>
+                    <div class="container nav-text">
+                        <a href="{% url 'projects' %}" class="container nav-text">
+                            <img src="../static/images/cloud4.png" alt="Link to Projects Page" id="navprojects_img">
+                            <span class="centered">Projects</span>
+                        </a>
+                    </div>
+                    <div class="container nav-text">
+                        <a href="{% url 'events' %}" class="container nav-text">
+                            <img src="../static/images/cloud3.png" alt="Link to Events Page" id="navevents_img">
+                            <span class="centered">Events</span>
+                        </a>
+                    </div>
+                </div>
             </nav>
         </header>
-        <div id="lander" class="container">
-            <div class="rect-purple rect-projects"></div>
-            <h3 class="archtitle-centered shadow">The Archive</h3>
-            <p class="centered" id="archive-par">Welcome to the archive of past meetings held in the CASTLE Lab! Use this for extra information, catching up on what you missed or to see useful links regarding student-led talks.</p>
+        <!-- Lander Section -->
+        <div class="spacing column">
+            <div class="container lander">
+                <div class="rect-purple rect-head rect-base">
+                    <div class="text">
+                        <h3 class="lander-text">The Archive</h3>
+                        <p class="text">Welcome to the archive of past meetings held in the CASTLE Lab! Use this for extra information, catching up on what you missed or to see useful links regarding student-led talks.</p>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="line2"></div>
         <!-- PAST TALKS -->
-        <div id="archivegrid-spacing">
+        <div class="spacing pt-row">
             {% for book, websites in archive_websites.items %}
-                <div class="container arch" id="archive_grid">
-                    <div class="rect-orange rect-past-talk"></div>
-                    <h3 class="title-centered shadow">{{ book.date }} - {{ book.type }} Meeting</h3>
-                    <p class="titlelist-center" id="meetingtitle-list">
-                        {{ book.description }}
-                        {% if websites %}
-                            <br>Websites:
-                            {% for website in websites %}
-                                <br><a href="{{ website.url }}">{{ website.name }}</a>
-                            {% endfor %}
-                        {% endif %}
-                    </p>
+                <div class="container">
+                    <div class="rect-orange rect-past-talk rect-base">
+                        <div class="text archive-text">
+                            <h3 class="archive-title shadow">{{ book.date }} - {{ book.type }} Meeting</h3>
+                            <p class="archive-description">
+                                {{ book.description }}
+                                {% if websites %}
+                                    <br>Websites:
+                                    {% for website in websites %}
+                                        <br><a href="{{ website.url }}">{{ website.name }}</a>
+                                    {% endfor %}
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
                 </div>
             {% endfor %}
         </div>

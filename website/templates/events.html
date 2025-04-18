@@ -27,42 +27,58 @@
             <div id="line"></div>
             <!-- Navigation Bar -->
             <nav>
-                <a href="{% url 'index' %}" class="container base">
-                    <img src="../static/images/castlealone.png" alt="Link to Home Page" id="navhome_img">
-                </a>                  
-                <a href="{% url 'archive' %}" class="container base">
-                    <img src="../static/images/cloud5.png" alt="Link to Archive Page" id="navarchive_img">
-                    <span class="centered">Archive</span>
-                </a>
-                <a href="{% url 'projects' %}" class="container base">
-                    <img src="../static/images/cloud4.png" alt="Link to Projects Page" id="navprojects_img">
-                    <span class="centered">Projects</span>
-                </a>
-                <a href="{% url 'events' %}" class="container base">
-                    <img src="../static/images/cloud3.png" alt="Link to Events Page" id="navevents_img">
-                    <span class="centered">Events</span>
-                </a>
+                <div class="spacing nav-row">
+                    <div class="container nav-text">
+                        <a href="{% url 'index' %}">
+                            <img src="../static/images/castlealone.png" alt="Link to Home Page" id="navhome_img">
+                        </a>
+                    </div>
+                    <div class="container nav-text">
+                        <a href="{% url 'archive' %}" class="container nav-text">
+                            <img src="../static/images/cloud5.png" alt="Link to Archive Page" id="navarchive_img">
+                            <span class="centered">Archive</span>
+                        </a>
+                    </div>
+                    <div class="container nav-text">
+                        <a href="{% url 'projects' %}" class="container nav-text">
+                            <img src="../static/images/cloud4.png" alt="Link to Projects Page" id="navprojects_img">
+                            <span class="centered">Projects</span>
+                        </a>
+                    </div>
+                    <div class="container nav-text">
+                        <a href="{% url 'events' %}" class="container nav-text">
+                            <img src="../static/images/cloud3.png" alt="Link to Events Page" id="navevents_img">
+                            <span class="centered">Events</span>
+                        </a>
+                    </div>
+                </div>
             </nav>
         </header>
-        <div id="lander" class="container">
-            <div class="rect-purple rect-projects"></div>
-            <h3 class="archtitle-centered shadow">Events</h3>
-            <p class="centered" id="archive-par">Every year, CASTLE Lab alongside Axiom Club collaborate to host events for students. The events range from field trips, competitions to board games! To join yourself, join the CASTLE Lab discord or show up to weekly meetings. Anyone is welcome to compete!</p>
+        <!-- Lander Section -->
+        <div class="spacing column">
+            <div class="container lander">
+                <div class="rect-purple rect-head rect-base">
+                    <div class="text">
+                        <h3 class="lander-text">Events</h3>
+                        <p class="text">Every year, CASTLE Lab alongside Axiom Club collaborate to host events for students. The events range from field trips, competitions to board games! To join yourself, join the CASTLE Lab discord or show up to weekly meetings. Anyone is welcome to compete!</p>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="line2"></div>
         <!-- EVENTS -->
-        <div id="eventgrid-spacing">
+        <div class="spacing column">
             {% for event in page_obj %}
-            <div class="event-container">
-                <div class="rect-orange rect-event">
-                    <div class="event-text">
+            <div class="container">
+                <div class="rect-orange rect-event rect-base">
+                    <div class="text event-text">
                         <h2 class="event-title shadow">{{ event.title }}</h2>
                         <h4 class="event-date">{{ event.date }}</h4>
                         <p class="event-description">{{ event.description }}</p>
                     </div>
                     {% if event.img %}
                     <div class="event-image">
-                        <img src="{{ event.img.url }}" alt="Event Image" id="img_border">
+                        <img src="{{ event.img.url }}" alt="Event Image" id="img-border">
                     </div>
                     {% endif %}
                 </div>

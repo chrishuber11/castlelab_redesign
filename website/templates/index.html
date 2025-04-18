@@ -26,137 +26,182 @@
             <div id="line"></div>
             <!-- Navigation Bar -->
             <nav>
-                <a href="{% url 'index' %}" class="container base">
-                    <img src="../static/images/castlealone.png" alt="Link to Home Page" id="navhome_img">
-                </a>                  
-                <a href="{% url 'archive' %}" class="container base">
-                    <img src="../static/images/cloud5.png" alt="Link to Archive Page" id="navarchive_img">
-                    <span class="centered">Archive</span>
-                </a>
-                <a href="{% url 'projects' %}" class="container base">
-                    <img src="../static/images/cloud4.png" alt="Link to Projects Page" id="navprojects_img">
-                    <span class="centered">Projects</span>
-                </a>
-                <a href="{% url 'events' %}" class="container base">
-                    <img src="../static/images/cloud3.png" alt="Link to Events Page" id="navevents_img">
-                    <span class="centered">Events</span>
-                </a>
+                <div class="spacing nav-row">
+                    <div class="container nav-text">
+                        <a href="{% url 'index' %}">
+                            <img src="../static/images/castlealone.png" alt="Link to Home Page" id="navhome_img">
+                        </a>
+                    </div>
+                    <div class="container nav-text">
+                        <a href="{% url 'archive' %}" class="container nav-text">
+                            <img src="../static/images/cloud5.png" alt="Link to Archive Page" id="navarchive_img">
+                            <span class="centered">Archive</span>
+                        </a>
+                    </div>
+                    <div class="container nav-text">
+                        <a href="{% url 'projects' %}" class="container nav-text">
+                            <img src="../static/images/cloud4.png" alt="Link to Projects Page" id="navprojects_img">
+                            <span class="centered">Projects</span>
+                        </a>
+                    </div>
+                    <div class="container nav-text">
+                        <a href="{% url 'events' %}" class="container nav-text">
+                            <img src="../static/images/cloud3.png" alt="Link to Events Page" id="navevents_img">
+                            <span class="centered">Events</span>
+                        </a>
+                    </div>
+                </div>
             </nav>
-            <!-- Lander Section -->
-             <div  id="lander" class="container base">
-                <div class="rect-purple rect-lander"></div>
-                <h3 class="title-centered shadow">The Alfred University<br>Computer and Software Technology<br>Learning Environment</h3>
-                <img src="../static/images/a_castlelogo_official.png" id="lander-logo" class="second-centered" alt="CASTLE Lab Logo">
-
-             </div>
-            
         </header>
+        <!-- Lander Section -->
+        <div class="spacing column">
+            <div class="container lander">
+                <div class="rect-purple rect-lander rect-base">
+                    <div class="text">
+                        <h3 class="lander-text">The Alfred University<br>Computer and Software Technology<br>Learning Environment</h3>
+                        <img src="../static/images/a_castlelogo_official.png" id="lander-logo" alt="CASTLE Lab Logo">
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Socials Bar -->
-        <nav id="social-bar">
-            <span class="container social" id="socials-text">CASTLE Lab GitHub</span>
-            <span class="container social" id="socials-text">CASTLE Lab Discord</span>
-            <span class="container social" id="socials-text">Alfred CS Website</span>
-            <span class="container social" id="socials-text">Alfred Axiom Club</span>
-
-        </nav>
-        <nav id="social-bar">
-            <a href="https://github.com/AUCSLAB" class="container social-images">
-                <img src="../static/images/github-icon.png" alt="Link to Github" id="socialbar-img">
-            </a>                  
-            <a href="https://discord.com/invite/z9CBFQzA" class="container social-images">
-                <img src="../static/images/discord-icon.png" alt="Link to Discord" id="socialbar-img">
-            </a>
-            <a href="https://www.alfred.edu/academics/undergrad-majors-minors/computer-science.cfm" class="container social-images">
-                <img src="../static/images/au_icon.png" alt="Link to AUCS Website" id="socialbar-img">
-            </a>
-            <a href="https://auconnect.alfred.edu/organization/mathandcsclub" class="container social-images">
-                <img src="../static/images/aucs_icon_small.png" alt="Link to Axiom Club" id="socialbar-img">
-            </a>
+        <nav>
+            <div class="spacing social-row">
+                <div class="container rect-base">
+                    <div class="text">
+                        <p>CASTLE Lab GitHub</p>
+                    </div>
+                    <a href="https://github.com/AUCSLAB">
+                        <img src="../static/images/github-icon.png" alt="Link to Github" id="socialbar-img">
+                    </a>
+                </div>
+                <div class="container rect-base">
+                    <div class="text">
+                        <p>CASTLE Lab Discord</p>
+                    </div>
+                    <a href="https://discord.com/invite/z9CBFQzA">
+                        <img src="../static/images/discord-icon.png" alt="Link to Discord" id="socialbar-img">
+                    </a>
+                </div>
+                <div class="container rect-base">
+                    <div class="text">
+                        <p>Alfred CS Website</p>
+                    </div>
+                    <a href="https://www.alfred.edu/academics/undergrad-majors-minors/computer-science.cfm">
+                        <img src="../static/images/au_icon.png" alt="Link to AUCS Website" id="socialbar-img">
+                    </a>
+                </div>
+                <div class="container rect-base">
+                    <div class="text">
+                        <p>Alfred Axiom Club</p>
+                    </div>
+                    <a href="https://auconnect.alfred.edu/organization/mathandcsclub">
+                        <img src="../static/images/aucs_icon_small.png" alt="Link to Axiom Club" id="socialbar-img">
+                    </a>
+                </div>
+            </div>
         </nav>
         <!-- About Section -->
-        <div id="line2"></div>
-         <p id="about">
-            Welcome to the Alfred University Computer Science Lab website!<br>
-            The place to review topics discussed every week and access related sources.<br>
-            Join weekly in Myers 107 when classes are in session.<br>
-            Everyone is welcome to attend a CASTLE Lab meeting and host their own talk.<br>
-            Feel free to submit a talk on our website or give your talk on the spot during the meeting!<br>
-         </p>
-         <div id="line2"></div>
-         <div class="container base" id="meetings-section">
-            <div class="rect-purple rect-meet"></div>
-            <h3 class="meetings-title-center shadow" id="meetings-title">Meetings</h3>
-            <p class="meetings-par-center" id="meetings-par">
-                Meetings are held every week and any upcoming talks can be viewed here.<br>
-                 Meetings are a great way for students to explore Computer Science beyond the classroom with discussions, guest speakers, and planning events or projects.<br>
-                Join weekly in Myers 107 when classes are in session and join our Discord to get announcements on future meetings.<br>
+        <div class="spacing column">
+            <p class="text about-text shadow">
+                Welcome to the Alfred University Computer Science Lab website!<br>
+                The place to review topics discussed every week and access related sources.<br>
+                Join weekly in Myers 107 when classes are in session.<br>
+                Everyone is welcome to attend a CASTLE Lab meeting and host their own talk.<br>
+                Feel free to submit a talk on our website or give your talk on the spot during the meeting!<br>
             </p>
-         </div>
-         <div id="line2"></div>
-        
-        <!-- <div id="inline-spacing-title">
-            <span id="nextmeeting-title">Next Meeting:</span>
-            <span id="submittalk-title">Submit Your Own Talk Here:</span>
-        </div> -->
-        <div id="grid-spacing">
-            <div class="container base" id="next-meeting">
-                <h2 id="nextmeeting-title shadow">Next Meeting</h2>
-                <div class="rect-orange rect-nextmeet"></div>
-                <span class="date-center" id="next-date">
-                    {% if meeting %}
-                        <h4>{{meeting.type}} Meeting on<br> {{ specific_date }} at {{ meeting.time|date:"P" }}</h4>
-                    {% else %}
-                        Please see Professor Alan Beadle for information about the next meeting at beadle@alfred.edu
-                    {% endif %}
-                </span>
-                <ul class="titlelist-center" id="meetingtitle-list">
-                    {% if meeting.type == 'Speaker' %}
-                        {% for talk in talks %}
-                            {% if talk.date == meeting.date %}
-                                <p>{{ talk.title }} by {{ talk.speaker }}</p>
+    
+            <div class="container">
+                <div class="rect-purple rect-meet rect-base">
+                    <div class="text meetings-text">
+                        <h3 class="meetings-title shadow">Meetings</h3>
+                        <p class="meetings-description">
+                            Meetings are held every week and any upcoming talks can be viewed here.<br>
+                            Meetings are a great way for students to explore Computer Science beyond the classroom with discussions, guest speakers, and planning events or projects.<br>
+                            Join weekly in Myers 107 when classes are in session and join our Discord to get announcements on future meetings.<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="line2"></div>
+
+        <div class="spacing row">
+            <div class="container">
+                <h2 class="indexnmst-title" id="text shadow">Next Meeting</h2>
+                <div class="rect-orange rect-nextmeet rect-base">
+                    <div class="text index-text">
+                        <h4 class="nextmeeting-description">
+                            {% if meeting %}
+                                {{meeting.type}} Meeting on<br> {{ specific_date }} at {{ meeting.time|date:"P" }}
+                            {% else %}
+                                <p>Please see Professor Alan Beadle for information about the next meeting at beadle@alfred.edu</p>
                             {% endif %}
-                        {% endfor %}
-                        <!-- <p>Text here for a short desc of what Speaker is presenting</p> -->
-                    {% else %}
-                            {% if talks %}
+                        </h4>
+                        <ul class="nextmeeting-meetings">
+                            {% if meeting.type == 'Speaker' %}
                                 {% for talk in talks %}
-                                    {% if talk.date == meeting.date %}
-                                        <li>{{ talk.title }} by {{ talk.speaker }}</li>
+                                    {% if talk.approved == 'Yes' %}
+                                        {% if talk.date == meeting.date %}
+                                            <p>{{ talk.title }} by {{ talk.speaker }}</p>
+                                        {% endif %}
                                     {% endif %}
                                 {% endfor %}
+                                <p>This meeting will have a special guest, email beadle@alfred.edu for more information!</p>
+                            {% elif meeting.type == 'Competition' %}
+                                {% for talk in talks %}
+                                    {% if talk.approved == 'Yes' %}
+                                        {% if talk.date == meeting.date %}
+                                            <li>{{ talk.title }} Competition hosted by {{ talk.speaker }}, see beadle@alfred.edu for more details!</li>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            
                             {% else %}
-                                <p>Stop in for Student and Professor led talks!</p>
+                                {% if talks %}
+                                    {% for talk in talks %}
+                                        {% if talk.approved == 'Yes' %}
+                                            {% if talk.date == meeting.date %}
+                                                <li>{{ talk.title }} by {{ talk.speaker }}</li>
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endfor %}
+                                {% else %}
+                                        <p>Stop in for Student and Professor led talks!</p>
+                                {% endif %}
                             {% endif %}
-                    {% endif %}
-                </ul>
-
+                        </ul>
+                    </div>
+                </div>           
             </div>
-            <div class="container base" id="submit-talk">
-                <h2 id="submittalk-title shadow">Submit Your Own Talk Here</h2>
-                <div class="rect-orange rect-submit"></div>
-                <p class="submittalk-info-center" id="submittalk-info">
-                    If you have your own talk to give, this is a great way to do it!
-                    Input your name and title of the talk you want to give and it will be checked with an administrator.
-                    After approved, it will be added to next weeks list.
-                </p>
-                <form class="submittalk-center" id="submittalk-form" method="post">
-                    {% csrf_token %}
-                    <span>Title of Talk:</span>
-                    <input type="text" name="title" id="title" maxlength="40" required>
-                    <br>
-                    <span>Name:</span>
-                    <input type="text" name="name" id="name" maxlength="40" required>
-                    <br>
-                    <button style="cursor: pointer" type="submit">Submit Talk!</button>
-                </form>
-                
-                <!-- Display success or error messages -->
-                {% if messages %}
-                    {% for message in messages %}
-                        <div>{{ message }}</div>
-                    {% endfor %}
-                {% endif %}
-                
+            <div class="container">
+                <h2 class="indexnmst-title" id="text shadow">Submit Your Own Talk Here</h2>
+                <div class="rect-orange rect-submit rect-base">
+                    <div class="text uncenter submittalk-text">
+                        <p class="submittalk-info">
+                            If you have your own talk to give, this is a great way to do it!
+                            Input the title of your talk, your name and your school email.
+                            After approved, it will be added to next weeks list.
+                        </p>
+                        <form class="submittalk-form" method="post">
+                            {% csrf_token %}
+                            <span class="uncenter">Title:</span>
+                            <input type="text" name="title" id="title" maxlength="40" required>
+                            <br>
+                            <span class="uncenter">Name:</span>
+                            <input type="text" name="name" id="name" maxlength="40" required>
+                            <br>
+                            <button style="cursor: pointer" type="submit">Submit Talk!</button>
+                        </form>
+                        
+                        <!-- Display success or error messages -->
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div>{{ message }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
             </div>
         </div>
          <div id="line2"></div>

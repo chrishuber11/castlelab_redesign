@@ -27,48 +27,66 @@
             <div id="line"></div>
             <!-- Navigation Bar -->
             <nav>
-                <a href="{% url 'index' %}" class="container base">
-                    <img src="../static/images/castlealone.png" alt="Link to Home Page" id="navhome_img">
-                </a>                  
-                <a href="{% url 'archive' %}" class="container base">
-                    <img src="../static/images/cloud5.png" alt="Link to Archive Page" id="navarchive_img">
-                    <span class="centered">Archive</span>
-                </a>
-                <a href="{% url 'projects' %}" class="container base">
-                    <img src="../static/images/cloud4.png" alt="Link to Projects Page" id="navprojects_img">
-                    <span class="centered">Projects</span>
-                </a>
-                <a href="{% url 'events' %}" class="container base">
-                    <img src="../static/images/cloud3.png" alt="Link to Events Page" id="navevents_img">
-                    <span class="centered">Events</span>
-                </a>
+                <div class="spacing nav-row">
+                    <div class="container nav-text">
+                        <a href="{% url 'index' %}">
+                            <img src="../static/images/castlealone.png" alt="Link to Home Page" id="navhome_img">
+                        </a>
+                    </div>
+                    <div class="container nav-text">
+                        <a href="{% url 'archive' %}" class="container nav-text">
+                            <img src="../static/images/cloud5.png" alt="Link to Archive Page" id="navarchive_img">
+                            <span class="centered">Archive</span>
+                        </a>
+                    </div>
+                    <div class="container nav-text">
+                        <a href="{% url 'projects' %}" class="container nav-text">
+                            <img src="../static/images/cloud4.png" alt="Link to Projects Page" id="navprojects_img">
+                            <span class="centered">Projects</span>
+                        </a>
+                    </div>
+                    <div class="container nav-text">
+                        <a href="{% url 'events' %}" class="container nav-text">
+                            <img src="../static/images/cloud3.png" alt="Link to Events Page" id="navevents_img">
+                            <span class="centered">Events</span>
+                        </a>
+                    </div>
+                </div>
             </nav>
         </header>
-        <div id="lander" class="container">
-            <div class="rect-purple rect-projects"></div>
-            <h3 class="archtitle-centered shadow">Projects</h3>
-            <p class="centered" id="archive-par">Students involved in CASTLE have many opportunities during their time in AU to experience and collaborate in projects. These projects are typically asked of by other AU faculty and students in need of programs for their problems which look great on a students resume. This page is one of many ways to keep in touch with the projects. Join the discord and attend meetings for your own chance to join in on these fun projects that will give you great opportunities to expand not only your coding knowledge, but your ability to work with a team!</p>
+        <!-- Lander Section -->
+        <div class="spacing column">
+            <div class="container lander">
+                <div class="rect-purple rect-head rect-base">
+                    <div class="text">
+                        <h3 class="lander-text">Projects</h3>
+                        <p class="text">Students involved in CASTLE at AU have opportunities to work on collaborative coding projects requested by faculty and students, enhancing both their skills and resumes. Stay updated on projects through this page, join the Discord, and attend meetings for a chance to participate in exciting team-based coding experiences!</p>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="line2"></div>
         <!-- PROJECTS -->
-        <div id="archivegrid-spacing">
+        <div class="spacing column">
             {% for project in page_obj %}
-                <div class="container arch" id="project_grid">
-                    <div class="rect-orange rect-proj"></div>
-                    <h2 class="title-centered shadow">{{ project.title }} Project</h2>
-                    {% if project.finish_date %}
-                        <h4 class="title-centered pdate-centered">Started on {{ project.start_date }}/ Finished on {{ project.finish_date }}</h4>
-                    {% else %}
-                        <h4 class="title-centered pdate-centered">Started on {{ project.start_date }}</h4>
-                    {% endif %}
-                    <p class="titlelist-center" id="meetingtitle-list">
-                        {{ project.description }}
+            <div class="container">
+                <div class="rect-orange rect-proj rect-base">
+                    <div class="text project-text">
+                        <h2 class="project-title shadow">{{ project.title }} Project</h2>
+                        {% if project.finish_date %}
+                            <h4 class="project-date shadow">Started on {{ project.start_date }}/ Finished on {{ project.finish_date }}</h4>
+                        {% else %}
+                            <h4 class="project-date shadow">Started on {{ project.start_date }}</h4>
+                        {% endif %}
+                            <p class="project-description"> {{ project.description }}
                         {% if project.github %}
                             <br>Find the GitHub Here:
-                                <br><a href="{{ project.github }}">{{ project.github }}</a>
+                            <br><a href="{{ project.github }}">{{ project.github }}</a>
                         {% endif %}
-                    </p>
+                            </p>
+                    </div>
                 </div>
+            </div>
             {% endfor %}
         </div>
         <div class="pagination">
