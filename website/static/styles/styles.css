@@ -8,42 +8,22 @@
 body {
     font-family: "Michroma", sans-serif;
     font-size: 1rem;
-    transform: scale(1);
-    
+    background-color: white;
+    padding: 0 60px;
 }
 
-header #line {
-    width: 100%;
-    height: 20px;
-}
-#line2 {
-    width: 100%;
-    height: 20px;
-    margin: 20px 0;
-}
-
-#line3 {
-    width: 100%;
-    height: 5px;
-    margin: 20px 0;
-}
-/* Navigation Bar */
+/* NAV BAR */
 header nav {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     font-family: "Micro 5", sans-serif;
     font-size: 23px;
-    color: black;
-    margin-bottom: 0;
-    padding-bottom: 0;
 }
 
-/* 80 px down 40 px up */
 /* Image Sizing */
 header #navhome_img {
-    width: 75;
+    max-width: 75px;
     height: 82px;
     margin-bottom: 4px;
 }
@@ -59,18 +39,6 @@ header #navevents_img {
     width: 140px;
     height: 80px;
 }
-/* Image and text container */
-.container {
-    position: relative;
-    text-align: center;
-    color: black;
-  }
-.base{
-    margin-right: 150px;
-  }
-.arch {
-    margin: 10px 0; /* Adds a vertical margin to prevent overlap */
-}
 
 .social {
     margin-right: 120px;
@@ -78,82 +46,8 @@ header #navevents_img {
 .social-images {
     margin-right: 265px;
 }
-/* Center text in image */
-.centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-  }
-.title-centered {
-    word-wrap: break-word;
-    white-space: nowrap;
-    position: absolute;
-    top: 12%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    max-width: 90%; 
-    text-align: center; 
-    white-space: normal;
-  }
-.pdate-centered {
-    word-wrap: break-word;
-    white-space: nowrap;
-    position: absolute;
-    top: 18%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    max-width: 90%; 
-    text-align: center; 
-    white-space: normal;
-  }
-.archtitle-centered {
-    word-wrap: break-word;
-    white-space: nowrap;
-    position: absolute;
-    top: 17%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    max-width: 90%; 
-    text-align: center; 
-    white-space: normal;
-  }
-.second-centered {
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-}
 
-.meetings-title-center {
-    position: absolute;
-    top: 12%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-}
-
-.meetings-par-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-}
-
-.date-center {
-    position: absolute;
-    top: 27%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-}
-
+/* CENTERING TEXT */
 .titlelist-center {
     position: absolute;
     top: 45%;
@@ -161,25 +55,16 @@ header #navevents_img {
     transform: translate(-50%, -50%);
     z-index: 1;
 }
-.submittalk-info-center {
+.archtitle-centered {
     position: absolute;
-    top: 30%;
+    top: 17%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1;
-}
-.submittalk-center {
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-}
+    max-width: 90%; 
+  }
 
 /* Remove margin from right most container */
-.container:last-child {
-    margin-right: 0;
-}
+
 .social-bar:last-child {
     margin-right: 0;
 }
@@ -187,248 +72,314 @@ header #navevents_img {
     margin-right: 0;
 }
 
+/* PIL to enforce picture size */
+
+/* GENERAL */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+.head-container {
+    display: flex;
+    flex-direction: column;
+}
+.text {
+    flex: 2; 
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center; 
+    text-align: center;
+    position: relative;
+}
 .pagination {
     text-align: center;
 }
-
-#lander {
-    color: white;
-    font-size: 30px;
+.container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.spacing {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: -10px;
-    padding-top: 0;
+    gap: 20px;
 }
-
-#lander-logo {
-    width: 550px;
-    height: 550px;
+.row {
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.nav-row {
+    flex-direction: row;
+    gap: 20%;
+    align-items: normal;
+}
+.social-row {
+    flex-direction: row;
+    gap: 5%;
+    align-items: normal;
+}
+.pt-row {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: normal;
+    gap: 5%;
+}
+.nav-text {
+    color: black;
+    margin-right: 5%;
+    margin-left: 5%;
+    position: relative;
+    text-align: center;
+    flex-direction: unset;
+}
+.column {
+    flex-direction: column;
+}
+.lander {
+    margin-top: -10px;
+}
+.shadow {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+#head-par {
+    color: white;
+    max-width: 90%;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 19px;
+}
+#line {
+    width: 100%;
+    height: 20px;
+}
+#line2 {
+    width: 100%;
+    height: 20px;
+    margin: 20px 0;
+}
+#line3 {
+    width: 100%;
+    height: 5px;
+    margin: 20px 0;
+}
+#img-border {
+    border: 2px solid black;
 }
 /* Socials */
-
 #social-bar {
     top: 50%;
     color: black;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
-
 #socials-text {
     top:  100%;
 }
 
-#about {
+/* INDEX SECTION */
+
+#lander-logo {
+    max-width: 550px;
+    max-height: 550px;
+}
+.about-text {
     color: #592B94;
-    text-align: center;
-    margin: 20px auto;
-    width: 80%;
 }
-
-#meetings-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    position: relative;
-    text-align: center;
-}
-
-#meetings-title {
+.lander-text {
     color: white;
     font-size: 30px;
-    font-weight: 100;
 }
-
-#meetings-par {
+.indexnmst-title {
+    text-align: center;
+}
+.meetings-title {
+    margin-top: -5%;
     color: white;
-    max-width: 90%;
-    text-align: center;
-    margin-top: 20px;
 }
-
-#grid-spacing {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    /* Space between containers */
-    gap: 20px; 
+.meetings-description {
+    margin-top: 2%;
+    color: white;
 }
-
-#archivegrid-spacing {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between; /* Equal spacing between rows and columns */
-    gap: 20px;
-    margin: 0 auto; /* Center Container */
+.nextmeeting-description {
+    margin-top: -37%;
+    color: #592B94;
 }
-
-#archive_grid {
-    flex: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    text-align: center;
-    box-sizing: border-box; 
-    width: 48%;
+.nextmeeting-meetings {
+    margin-top: 5%;
 }
-
-#project_grid {
-    flex: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    text-align: center;
-    box-sizing: border-box; 
-    width: 98%;
+/* .submittalk-info {
+    margin-top: -10%;
+} */
+.subtmittalk-text {
+    margin-bottom: -20%;
 }
-
-#next-meeting {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0 20px;
-    position: relative;
-    text-align: center;
-    
+.text-left {
+    text-align: left;
 }
-
-#submit-talk {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0 20px;
-    position: relative;
-    text-align: center;
+.text-center {
+    text-align: center !important;
 }
-
-#nextmeeting-title {
-    color: black;
-    font-size: 23px;
-    font-weight: 100;
-    margin-bottom: 10px;
-    text-align: center;
-}
-#submittalk-title {
-    color: black;
-    font-size: 23px;
-    font-weight: 100;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-#next-date {
-    color: #702EC0;
-    font-size: 19px;
-    font-weight: 100;
-}
-
-#meetingtitle-list {
-    color: black;
-    max-width: 200%;
-    text-align: center;
-    margin-top: 20px;
-}
-#submittalk-form {
-    color: black;
-    max-width: 90%;
-    text-align: center;
-    margin-top: 20px;
-}
-#submittalk-info {
-    color: black;
-    max-width: 90%;
-    font-size: 15px;
-    text-align: center;
-    margin-top: 20px;
-}
-
+/* .form-text {
+    margin-top: -10%;
+} */
 /* ARCHIVE SECTION */
 
-#archive-par {
-    color: white;
-    max-width: 90%;
-    text-align: center;
-    margin-top: 20px;
-    font-size: 19px;
+.archive-text {
+    margin-top: -100px;
+}
+/* PROJECTS SECTION */
+
+.project-text {
+    margin-top: -140px;
+}
+/* EVENTS SECTION */
+
+.event-text {
+    margin-top: -180px;
+}
+
+.event-image {
+    flex: 1; /* Adjust ratio to control image size */
+    display: flex;
+    justify-content: center; /* Center-align image horizontally */
+    align-items: center; /* Center-align image vertically */
+    border: 15px black;
+}
+
+.event-image img {
+    max-width: 100%; /* Ensures the image is responsive */
+    height: auto;
 }
 
 /* RECTANGLES */
-.rect-lander {
-    width: 1600px;
-    height: 700px;
-    background-color: #953FFF;
+.rect-purple {
+    /* background-color: #953FFF; */
+    background-color: #8F6BBD;
     border: 4px solid black;
 }
-.rect-meet {
-    width: 1600px;
-    height: 300px;
-    background-color: #953FFF;
-    border: 4px solid black;
-}
-.rect-nextmeet {
-    width: 600px;
-    height: 300px;
-    background-color: #F3A00F;
-    border: 4px solid black;
-}
-.rect-submit {
-    width: 600px;
-    height: 300px;
+.rect-orange {
     background-color: #F3A00F;
     border: 4px solid black;
 }
 
-.rect-archive1 {
-    margin-left: 50px;
-    margin-right: 50px;
-    width: 1800px;
-    height: 200px;
-    background-color: #953FFF;
-    border: 4px solid black;
+.rect-base {
+    display: flex;
+    flex-direction: column;
+    padding: 20px; 
+    align-items: center;
+    gap: 15px;
+}
+
+.rect-base-nogap {
+    display: flex;
+    flex-direction: column;
+    padding: 20px; 
+    align-items: center;
+}
+.rect-head {
+    max-width: 1600px;
+    height: 300px;
+}
+
+.rect-lander {
+    height: 700px;
+    width: 1600px;
+}
+
+.rect-meet {
+    height: 300px;
+    max-width: 1600px;
 }
 
 .rect-past-talk {
-    width: 800px;
+    width: 700px;
     height: 250px;
-    background-color: #953FFF;
-    border: 4px solid black;
-}
-
-.rect-projects {
-    margin-left: 50px;
-    margin-right: 50px;
-    width: 1800px;
-    height: 300px;
-    background-color: #953FFF;
-    border: 4px solid black;
+    margin-bottom: 5%;
 }
 
 .rect-proj {
     width: 1400px;
-    height: 350px;
-    background-color: #953FFF;
-    border: 4px solid black;
+    height: 300px;
 }
 
 .rect-event {
-    width: 700px;
+    width: 1400px;
     height: 400px;
-    background-color: #953FFF;
-    border: 4px solid black;
+    flex-direction: row;
+}
+
+.rect-nextmeet, .rect-submit {
+    width: 600px;
+    min-height: 300px;
 }
 
 /* MEDIA FORMATTING */
+@media (max-width: 1600px) {
+    .rect-lander, .rect-head {
+        width: 1400px;
+    }
+}
+@media (max-width: 1400px) {
+    .rect-lander, .rect-head, .rect-proj, .rect-event {
+        width: 1200px;
+    }
+}
+@media (max-width: 1200px) {
+    .rect-lander, .rect-head, .rect-proj, .rect-event {
+        width: 1000px;
+    }
+    .nav-row {
+        gap: 10%;
+    }
+}
+@media (max-width: 1000px) {
+    .rect-lander, .rect-head, .rect-proj {
+        width: 800px;
+    }
+    .nav-row {
+        gap: 0%;
+    }
+    .rect-event {
+        width: 800px;
+        flex-direction: column;
+    }
+}
+@media (max-width: 800px) {
+    .rect-lander, .rect-proj, .rect-event {
+        width: 600px;
+    }
+    .rect-head {
+        width: 725px;
+    }
+    .nav-row {
+        gap: 2.5%;
+    }
+    .nav-text {
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+    #lander-logo {
+        max-width: 450px;
+        max-height: 450px;
+    }
+}
+
+/* @media (max-width: 1044px) {
+    .nav-row {
+        flex-direction: column;
+    }
+    .nav-text {
+        flex-direction: column;
+    }
+} */
+
 @media (max-width: 768px) {
     .base {
         margin-right: 0;

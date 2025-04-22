@@ -1,36 +1,59 @@
-from django import forms
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from .models import Talk, Meeting, Archive, Website, Project, Event
 from datetime import datetime
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib import messages
+from datetime import datetime, timedelta
 
 def index(request):
     current_date = datetime.now().date()
     print('It is ' + str(current_date))
-    specific_date = '2025-03-18'  # Replace with the desired date
-    #1 is current, 2 is specified, 3 is next up
-    use = 3
-    if use == 1:
-        meeting = Meeting.objects.filter(date=current_date).first()
-        talks = Talk.objects.filter(date=current_date)
-        return render(request, 'index.html', {'talks': talks, 'specific_date': current_date, 'meeting':meeting})
-    elif use == 2:
-        meeting = Meeting.objects.filter(date=specific_date).first()
-        talks = Talk.objects.filter(date=specific_date)
-        return render(request, 'index.html', {'talks': talks, 'specific_date': specific_date, 'meeting':meeting})
-    elif use == 3:
-        # Query for the next meeting on or after today
-        meeting = Meeting.objects.filter(date__gte=current_date).order_by('date', 'time').first()
-        next_available_date = meeting.date if meeting else None
-        talks = Talk.objects.filter(date=next_available_date)
-        print(next_available_date, 'Next Available Date')
-        if meeting:
-            print(f"Next meeting: {meeting}")
-            print('Talks found, ', talks)
+    # Query for the next meeting on or after today
+    meeting = Meeting.objects.filter(date__gte=current_date).order_by('date', 'time').first()
+    next_available_date = meeting.date if meeting else None
+    talks = Talk.objects.filter(date=next_available_date)
+    print('Next Available Date: ', next_available_date)
+    
+    # Retrieve submission count and last submission time from the session for Cooldown period
+    submission_count = request.session.get('submission_count', 0)
+    last_submission_time = request.session.get('last_submission_time')
+    cooldown_period = timedelta(seconds=1) #Cooldown period
+    if last_submission_time:
+        last_submission_time = datetime.fromisoformat(last_submission_time)  # Parse from ISO format
+        if datetime.now() - last_submission_time > cooldown_period:
+            # Reset the count if the cooldown period has passed
+            submission_count = 0
+            
+    if meeting:
+        print(f"Next meeting: {meeting}")
+        print('Talks found, ', talks)
+    else:
+        print("No upcoming meetings found.")
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        title = request.POST.get('title')
+        email = request.POST.get('email')
+        if submission_count >= 3:  # Limit submissions to 3 per 4 hours
+            context = 'Submission limit reached. Try again later.'
+            messages.error(request, context)
+            return redirect('index')
+        if name and title and email:
+            Talk.objects.create(speaker=name, title=title, email=email, date=next_available_date, approved='No Decision')
+            context = 'Talk submitted successfully!'
+            messages.success(request, context)
+            # Update the session with the new submission count and timestamp
+            request.session['submission_count'] = submission_count + 1
+            request.session['last_submission_time'] = datetime.now().isoformat()
+            return redirect('index')
+        elif name == '' and title == '' and email == '':
+            context = ''
+            messages.error(request, context)
+            return redirect('index')
         else:
-            print("No upcoming meetings found.")
-        return render(request, 'index.html', {'talks': talks, 'specific_date': next_available_date, 'meeting':meeting})
+            context = 'Error: Please fill in all fields.'
+            messages.error(request, context)
+            return redirect('index')
+    return render(request, 'index.html', {'talks': talks, 'specific_date': next_available_date, 'meeting':meeting})
 
 def archive(request):
     archives = Archive.objects.all().order_by('-date') 
@@ -93,4 +116,4 @@ def events(request):
     #     events: Event.objects.filter(date=event.date) for event in page_obj
     # }
 
-    return render(request, 'events.html', {'page_obj': page_obj})
+    return render(request, 'events.html', {'page_obj': page_obj}) 

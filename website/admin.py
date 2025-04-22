@@ -3,7 +3,7 @@ from .models import Talk, Meeting, Website, Archive, Setting, Project, Event
 
 @admin.register(Talk)
 class TalkAdmin(admin.ModelAdmin):
-    list_display = ('title', 'speaker', 'date','approved')
+    list_display = ('title', 'speaker', 'email', 'date','approved')
 
 @admin.register(Meeting)
 class TalkAdmin(admin.ModelAdmin):
