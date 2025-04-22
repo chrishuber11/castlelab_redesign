@@ -17,7 +17,7 @@ def index(request):
     # Retrieve submission count and last submission time from the session for Cooldown period
     submission_count = request.session.get('submission_count', 0)
     last_submission_time = request.session.get('last_submission_time')
-    cooldown_period = timedelta(hours=4) #Cooldown period
+    cooldown_period = timedelta(seconds=1) #Cooldown period
     if last_submission_time:
         last_submission_time = datetime.fromisoformat(last_submission_time)  # Parse from ISO format
         if datetime.now() - last_submission_time > cooldown_period:
@@ -32,19 +32,20 @@ def index(request):
     if request.method == 'POST':
         name = request.POST.get('name')
         title = request.POST.get('title')
+        email = request.POST.get('email')
         if submission_count >= 3:  # Limit submissions to 3 per 4 hours
             context = 'Submission limit reached. Try again later.'
             messages.error(request, context)
             return redirect('index')
-        if name and title:
-            Talk.objects.create(speaker=name, title=title, date=next_available_date, approved='No Decision')
+        if name and title and email:
+            Talk.objects.create(speaker=name, title=title, email=email, date=next_available_date, approved='No Decision')
             context = 'Talk submitted successfully!'
             messages.success(request, context)
             # Update the session with the new submission count and timestamp
             request.session['submission_count'] = submission_count + 1
             request.session['last_submission_time'] = datetime.now().isoformat()
             return redirect('index')
-        elif name == '' and title == '':
+        elif name == '' and title == '' and email == '':
             context = ''
             messages.error(request, context)
             return redirect('index')

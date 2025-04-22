@@ -177,23 +177,52 @@
             <div class="container">
                 <h2 class="indexnmst-title" id="text shadow">Submit Your Own Talk Here</h2>
                 <div class="rect-orange rect-submit rect-base">
-                    <div class="text uncenter submittalk-text">
+                    <div class="text submittalk-text">
                         <p class="submittalk-info">
                             If you have your own talk to give, this is a great way to do it!
                             Input the title of your talk, your name and your school email.
                             After approved, it will be added to next weeks list.
                         </p>
+                    </div>
+                    <div class="text text-left form-text">
                         <form class="submittalk-form" method="post">
                             {% csrf_token %}
-                            <span class="uncenter">Title:</span>
+                            <!-- <span>Title:</span>
                             <input type="text" name="title" id="title" maxlength="40" required>
                             <br>
-                            <span class="uncenter">Name:</span>
+                            <span>Name:</span>
                             <input type="text" name="name" id="name" maxlength="40" required>
                             <br>
-                            <button style="cursor: pointer" type="submit">Submit Talk!</button>
+                            <span>School Email:</span>
+                            <input type="text" name="email" id="email" maxlength="40" required>
+                            <br>
+                            <button style="cursor: pointer" class="text-center" type="submit">Submit Talk!</button> -->
+                            <div class="spacing column">
+                                <div class="spacing row">
+                                    <div class="container">
+                                        <div class="row rect-base-nogap">
+                                            <div class="text">
+                                                <p>Title:</p>
+                                                <p>Name:</p>
+                                                <p>School Email:</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container">
+                                        <div class="row rect-base-nogap">
+                                            <div class="text">
+                                                <input type="text" name="title" id="title" maxlength="40" required>
+                                                <input type="text" name="name" id="name" maxlength="40" required>
+                                                <input type="text" name="email" id="email" maxlength="40" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button style="cursor: pointer" class="" type="submit">Submit Talk!</button>
+                            </div>
                         </form>
-                        
+                    </div>
+                    <div class="text submittalk-text">
                         <!-- Display success or error messages -->
                         {% if messages %}
                             {% for message in messages %}

@@ -214,12 +214,21 @@ header #navevents_img {
 .nextmeeting-meetings {
     margin-top: 5%;
 }
-.submittalk-info {
+/* .submittalk-info {
     margin-top: -10%;
+} */
+.subtmittalk-text {
+    margin-bottom: -20%;
 }
-.uncenter {
+.text-left {
     text-align: left;
 }
+.text-center {
+    text-align: center !important;
+}
+/* .form-text {
+    margin-top: -10%;
+} */
 /* ARCHIVE SECTION */
 
 .archive-text {
@@ -268,6 +277,12 @@ header #navevents_img {
     gap: 15px;
 }
 
+.rect-base-nogap {
+    display: flex;
+    flex-direction: column;
+    padding: 20px; 
+    align-items: center;
+}
 .rect-head {
     max-width: 1600px;
     height: 300px;
