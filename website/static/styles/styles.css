@@ -28,15 +28,15 @@ header #navhome_img {
     margin-bottom: 4px;
 }
 header #navarchive_img {
-    width: 165px;
+    max-width: 165px;
     height: 80px;
 }
 header #navprojects_img {
-    width: 160px;
+    max-width: 160px;
     height: 80px;
 }
 header #navevents_img {
-    width: 140px;
+    max-width: 140px;
     height: 80px;
 }
 
@@ -127,7 +127,7 @@ header #navevents_img {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: normal;
-    gap: 5%;
+    gap: auto;
 }
 .nav-text {
     color: black;
@@ -208,11 +208,13 @@ header #navevents_img {
     color: white;
 }
 .nextmeeting-description {
-    margin-top: -37%;
+    position: absolute;
+    top: -2%;
     color: #592B94;
 }
 .nextmeeting-meetings {
     margin-top: 5%;
+    font-size: .9rem;
 }
 /* .submittalk-info {
     margin-top: -10%;
@@ -221,7 +223,13 @@ header #navevents_img {
     margin-bottom: -20%;
 }
 .text-left {
+    flex: 2; 
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: start; 
     text-align: left;
+    position: relative;
 }
 .text-center {
     text-align: center !important;
@@ -230,19 +238,39 @@ header #navevents_img {
     margin-top: -10%;
 } */
 /* ARCHIVE SECTION */
-
+.archive-title {
+    position: absolute;
+    top: 5%;
+}
 .archive-text {
-    margin-top: -100px;
+    position:initial;
 }
 /* PROJECTS SECTION */
-
+.project-title {
+    position: absolute;
+    top: 5%;
+}
+.project-date {
+    position: absolute;
+    top: 15%;
+}
 .project-text {
-    margin-top: -140px;
+    position: initial;
+}
+.project-description{
+    font-size: 1rem;
 }
 /* EVENTS SECTION */
-
+.event-title {
+    position: absolute;
+    top: 5%;
+}
+.event-date {
+    position: absolute;
+    top: 15%;
+}
 .event-text {
-    margin-top: -180px;
+    position: initial;
 }
 
 .event-image {
@@ -260,7 +288,6 @@ header #navevents_img {
 
 /* RECTANGLES */
 .rect-purple {
-    /* background-color: #953FFF; */
     background-color: #8F6BBD;
     border: 4px solid black;
 }
@@ -268,13 +295,15 @@ header #navevents_img {
     background-color: #F3A00F;
     border: 4px solid black;
 }
-
 .rect-base {
     display: flex;
     flex-direction: column;
     padding: 20px; 
     align-items: center;
     gap: 15px;
+}
+.rect-socials {
+    padding: 20px;
 }
 
 .rect-base-nogap {
@@ -299,7 +328,7 @@ header #navevents_img {
 }
 
 .rect-past-talk {
-    width: 700px;
+    width: 650px;
     height: 250px;
     margin-bottom: 5%;
 }
@@ -317,29 +346,39 @@ header #navevents_img {
 
 .rect-nextmeet, .rect-submit {
     width: 600px;
-    min-height: 300px;
+    height: 300px;
 }
 
 /* MEDIA FORMATTING */
-@media (max-width: 1600px) {
+@media (max-width: 1650px) {
     .rect-lander, .rect-head {
         width: 1400px;
     }
 }
-@media (max-width: 1400px) {
+@media (max-width: 1450px) {
     .rect-lander, .rect-head, .rect-proj, .rect-event {
         width: 1200px;
     }
+    .rect-past-talk{
+        width: 550px;
+    }
 }
-@media (max-width: 1200px) {
+@media (max-width: 1250px) {
     .rect-lander, .rect-head, .rect-proj, .rect-event {
         width: 1000px;
     }
     .nav-row {
         gap: 10%;
     }
+    .rect-past-talk{
+        width: 450px;
+    }
+    .archive-title, .archive-description{
+        font-size: .9rem;
+    }
+
 }
-@media (max-width: 1000px) {
+@media (max-width: 1050px) {
     .rect-lander, .rect-head, .rect-proj {
         width: 800px;
     }
@@ -348,13 +387,31 @@ header #navevents_img {
     }
     .rect-event {
         width: 800px;
+        height: 600px;
         flex-direction: column;
     }
+    .rect-past-talk{
+        width: 350px;
+    }
+    .archive-title, .archive-description{
+        font-size: .8rem;
+    }
+    .event-date{
+        position: static;
+    }
+    .event-image img{
+        max-width: 60%;
+    }
+
 }
-@media (max-width: 800px) {
+
+@media (max-width: 850px) {
     .rect-lander, .rect-proj, .rect-event {
         width: 600px;
     }
+    /* .rect-nextmeet, .rect-submit {
+        max-width: 500px;
+    } */
     .rect-head {
         width: 725px;
     }
@@ -369,37 +426,236 @@ header #navevents_img {
         max-width: 450px;
         max-height: 450px;
     }
-}
-
-/* @media (max-width: 1044px) {
-    .nav-row {
-        flex-direction: column;
-    }
-    .nav-text {
-        flex-direction: column;
-    }
-} */
-
-@media (max-width: 768px) {
-    .base {
-        margin-right: 0;
-        margin-bottom: 10px;
-    }
     header nav .container {
         flex: 1 1 100%;
     }
+    .rect-past-talk{
+        width: 550px;
+    }
+    .archive-title, .archive-description{
+        font-size: .75rem;
+    }
+    .project-description{
+        font-size: .75rem;
+    }
+    .pgithub {
+        font-size: .9rem;
+    }
+    .event-title{
+        font-size: .99rem;
+    }
+    .event-date{
+        margin-top: -10%;
+    }
+}
+@media (max-width: 740px) {
+    .rect-head{
+        width: 650px;
+    }
+    .rect-past-talk{
+        width: 550px;
+    }
+
+}
+@media (max-width: 650px) {
+    .rect-lander, .rect-proj, .rect-event, .rect-nextmeet, .rect-submit, .rect-head{
+        width: 550px;
+    }
+    .nav-row {
+        gap: .5%;
+    }
+    .rect-past-talk{
+        width: 500px;
+    }
+}
+
+@media (max-width: 560px) {
+    .rect-lander, .rect-proj, .rect-event, .rect-nextmeet, .rect-submit, .rect-head{
+        width: 450px;
+    }
+    .rect-lander {
+        height: 550px;
+    }
+    .rect-head {
+        height: 250px;
+    }
+    .lander-text {
+        font-size: 25px;
+    }
     #lander-logo {
-        width: 100%;
-        height: auto;
+        max-width: 350px;
+        max-height: 350px;
     }
-    #meetings-section {
-        flex-direction: column;
+    .rect-past-talk{
+        width: 400px;
     }
-    body {
-        font-size: 0.9rem;
+    .archive-title, .archive-description{
+        font-size: .65rem;
     }
-    .container.arch {
-        width: 100%; /* Full-width for smaller screens */
-        margin: 10px 0; /* Add vertical spacing between stacked containers */
+    .archive-ov {
+        font-size: .9rem;
     }
+    header #navhome_img {
+        max-width: 60px;
+        height: 67px;
+    }
+    header #navarchive_img {
+        max-width: 150px;
+        height: 65px;
+    }
+    header #navprojects_img {
+        max-width: 145px;
+        height: 65px;
+    }
+    header #navevents_img {
+        max-width: 125px;
+        height: 65px;
+    }
+    .rect-socials {
+        gap: 0%;
+    }
+    .meetings-description, .about-text {
+        font-size: .9rem;
+    }
+    .indexnmst-title {
+        font-size: 1.3rem;
+    }
+    .socialbar-text {
+        font-size: .8rem;
+    }
+    .social-row {
+        gap: 2%;
+    }
+    .projheader-text{
+        font-size: .8rem;
+    }
+    .project-title, .project-date{
+        font-size: .96rem;
+    }
+    .project-description{
+        font-size: .7rem;
+    }
+    .pgithub {
+        font-size: .8rem;
+    }
+    .eventdesc {
+        font-size: .9rem;
+    }
+    /* .event-text{
+        position: relative;
+    } */
+    .event-description{
+        font-size: .9rem;
+    }
+    .event-image img{
+        max-width: 80%;
+    }
+    
+}
+@media (max-width: 470px) {
+    .rect-lander, .rect-meet, .rect-proj, .rect-event, .rect-nextmeet, .rect-submit, .rect-head{
+        width: 300px;
+    }
+    .rect-lander {
+        height: 350px;
+    }
+    .rect-head {
+        height: 250px;
+    }
+    .lander-text {
+        font-size: 15px;
+    }
+    #lander-logo {
+        max-width: 250px;
+        max-height: 250px;
+    }
+    .rect-nextmeet, .rect-submit {
+        height: 250px;
+    }
+    .nav-text {
+        font-size: .95rem;
+    }
+    .nav-row {
+        gap: 2.5%;
+    }
+    .rect-past-talk{
+        width: 250px;
+        height: 200px;
+    }
+    .archive-title, .archive-description{
+        font-size: .55rem;
+    }
+    .archive-ov {
+        font-size: .6rem;
+    }
+    header #navhome_img {
+        max-width: 40px;
+        height: 47px;
+    }
+    header #navarchive_img {
+        max-width: 130px;
+        height: 45px;
+    }
+    header #navprojects_img {
+        max-width: 125px;
+        height: 45px;
+    }
+    header #navevents_img {
+        max-width: 105px;
+        height: 45px;
+    }
+    .meetings-description, .about-text {
+        font-size: .7rem;
+    }
+    .indexnmst-title {
+        font-size: .9rem;
+    }
+    .socialbar-text {
+        font-size: .5rem;
+    }
+    .social-row {
+        gap: 0%;
+        align-items: center;
+    }
+    #socialbar-img {
+        width: 90%;
+        height: 90%;
+    }
+    .submittalk-info {
+        font-size: .6rem;
+    }
+    .nextmeeting-description {
+        font-size: .9rem;
+    }
+    .forum-title-text {
+        font-size: .6rem;
+    }
+    input {
+        width:130%;
+    }
+    .auto-width {
+        width: 49%;
+    }
+    .button-size {
+        font-size: 60%;
+    }
+    .projheader-text{
+        font-size: .7rem;
+    }
+    .project-title, .project-date{
+        font-size: .9rem;
+    }
+    .project-description{
+        font-size: .6rem;
+    }
+    .pgithub {
+        font-size: .6rem;
+    }
+    .eventdesc {
+        font-size: .75rem;
+    }
+    .event-description{
+        font-size: .8rem;
+    }
+
 }

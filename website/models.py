@@ -4,7 +4,7 @@ class Talk(models.Model):
     date = models.DateField()
     title = models.CharField(max_length=40)
     speaker = models.CharField(max_length=40)
-    email = models.CharField(max_length=40)
+    email = models.EmailField(blank=True, null=True)
     
     YES = 'Yes'
     NO = 'No'
@@ -44,7 +44,7 @@ class Meeting(models.Model):
 
 class Archive(models.Model):
     date = models.DateField()
-    description = models.CharField(max_length=100)
+    description = models.CharField(max_length=300)
 
     CASTLE = 'CASTLE'
     COMPETITION = 'Competition'
@@ -60,7 +60,7 @@ class Archive(models.Model):
     class Meta:
         db_table = 'archive'
     def __str__(self):
-        return f"{self.type} Meeting on {self.date}, description: {self.description}"
+        return f"{self.type} Meeting on {self.date}"
 
 
 class Website(models.Model):
@@ -89,7 +89,7 @@ class Setting(models.Model):
         db_table = 'settings'
 
     def __str__(self):
-        return f"{self.setting}, Description: {self.description}, Toggled: {self.toggle}"
+        return f"{self.setting}, Toggled: {self.toggle}"
     
 class Project(models.Model):
     title = models.CharField(max_length=50)
