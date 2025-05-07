@@ -60,7 +60,7 @@
                 <div class="rect-purple rect-head rect-base">
                     <div class="text">
                         <h3 class="lander-text">The Archive</h3>
-                        <p class="text">Welcome to the archive of past meetings held in the CASTLE Lab! Use this for extra information, catching up on what you missed or to see useful links regarding student-led talks.</p>
+                        <p class="text archive-ov">Welcome to the archive of past meetings held in the CASTLE Lab! Use this for extra information, catching up on what you missed or to see useful links regarding student-led talks.</p>
                     </div>
                 </div>
             </div>
@@ -78,7 +78,7 @@
                                 {% if websites %}
                                     <br>Websites:
                                     {% for website in websites %}
-                                        <br><a href="{{ website.url }}">{{ website.name }}</a>
+                                        <br><a href="{{ website.url }}">{{ website.url }}</a>
                                     {% endfor %}
                                 {% endif %}
                             </p>

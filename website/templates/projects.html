@@ -60,7 +60,7 @@
                 <div class="rect-purple rect-head rect-base">
                     <div class="text">
                         <h3 class="lander-text">Projects</h3>
-                        <p class="text">Students involved in CASTLE at AU have opportunities to work on collaborative coding projects requested by faculty and students, enhancing both their skills and resumes. Stay updated on projects through this page, join the Discord, and attend meetings for a chance to participate in exciting team-based coding experiences!</p>
+                        <p class="projheader-text text">Students involved in CASTLE at AU have opportunities to work on collaborative coding projects requested by faculty and students, enhancing both their skills and resumes. Stay updated on projects through this page, join the Discord, and attend meetings for a chance to participate in exciting team-based coding experiences!</p>
                     </div>
                 </div>
             </div>
@@ -78,12 +78,12 @@
                         {% else %}
                             <h4 class="project-date shadow">Started on {{ project.start_date }}</h4>
                         {% endif %}
-                            <p class="project-description"> {{ project.description }}
+                            <p class="project-description"> {{ project.description }}</p>
                         {% if project.github %}
-                            <br>Find the GitHub Here:
-                            <br><a href="{{ project.github }}">{{ project.github }}</a>
+                            <p class="project-description"><b>Find the GitHub Here:</b></p>
+                            <a href="{{ project.github }}" class="pgithub"> {{ project.github }}</a>
                         {% endif %}
-                            </p>
+                            
                     </div>
                 </div>
             </div>
