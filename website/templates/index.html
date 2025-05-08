@@ -160,7 +160,7 @@
                                             {% for talk in talks %}
                                                 {% if talk.approved == 'Yes' %}
                                                     {% if talk.date == meeting.date %}
-                                                        <li>{{ talk.title }} <br>by {{ talk.speaker }}</li>
+                                                        <li><b>{{ talk.title }}</b> <br>by {{ talk.speaker }}</li>
                                                     {% endif %}
                                                 {% endif %}
                                             {% endfor %}
