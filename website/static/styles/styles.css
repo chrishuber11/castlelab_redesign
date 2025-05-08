@@ -210,6 +210,7 @@ header #navevents_img {
 .nextmeeting-description {
     position: absolute;
     top: -2%;
+    width: 300px;
     color: #592B94;
 }
 .nextmeeting-meetings {
@@ -554,7 +555,7 @@ header #navevents_img {
 }
 @media (max-width: 470px) {
     .rect-lander, .rect-meet, .rect-proj, .rect-event, .rect-nextmeet, .rect-submit, .rect-head{
-        width: 300px;
+        width: 400px;
     }
     .rect-lander {
         height: 350px;
@@ -579,7 +580,7 @@ header #navevents_img {
         gap: 2.5%;
     }
     .rect-past-talk{
-        width: 250px;
+        width: 350px;
         height: 200px;
     }
     .archive-title, .archive-description{
@@ -658,4 +659,26 @@ header #navevents_img {
         font-size: .8rem;
     }
 
+}
+@media (max-width: 400px) {
+    .rect-lander, .rect-meet, .rect-proj, .rect-event, .rect-nextmeet, .rect-submit, .rect-head{
+        width: 350px;
+    }
+    .rect-past-talk{
+        width: 300px;
+    }
+}
+@media (max-width: 350px) {
+    .rect-lander, .rect-meet, .rect-proj, .rect-event, .rect-nextmeet, .rect-submit, .rect-head{
+        width: 300px;
+    }
+    .event-title{
+        font-size: .92rem;
+    }
+    .project-title, .project-date{
+        font-size: .85rem;
+    }
+    .rect-past-talk{
+        width: 250px;
+    }
 }

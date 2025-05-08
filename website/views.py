@@ -4,6 +4,10 @@ from datetime import datetime
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib import messages
 from datetime import datetime, timedelta
+from django.utils.html import escape
+import re
+from django.core.validators import validate_email
+from django.core.exceptions import ValidationError
 
 def index(request):
     current_date = datetime.now().date()
@@ -30,9 +34,17 @@ def index(request):
     else:
         print("No upcoming meetings found.")
     if request.method == 'POST':
-        name = request.POST.get('name')
-        title = request.POST.get('title')
-        email = request.POST.get('email')
+        name = escape(request.POST.get('name'))
+        title = escape(request.POST.get('title'))
+        email = escape(request.POST.get('email'))
+        #remove any special characters
+        name = re.sub(r'[^a-zA-Z0-9\s]', '', name)
+        title = re.sub(r'[^a-zA-Z0-9\s]', '', title)
+        # Validate email format
+        try:
+            validate_email(email)
+        except ValidationError:
+            email = None  # Invalid emails become None
         if next_available_date:
             if submission_count >= 3:  # Limit submissions to 3 per 4 hours
                 context = 'Submission limit reached. Try again later.'
