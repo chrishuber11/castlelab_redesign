@@ -1,4 +1,5 @@
 From Foundations to Full Stack with Flexbox: CASTLE Website Redesign
+
 An Alfred University Honors Thesis - Christofer Huber
 
 For the current URL to access the website:
