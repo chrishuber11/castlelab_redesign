@@ -4,6 +4,8 @@ An Alfred University Honors Thesis - Christofer Huber
 For the current URL to access the website:
 https://cjh8.pythonanywhere.com/
 
+Link to the Online Documentation of the Thesis: TBD
+
 Abstract:
 The project objectives were set with these key ideas: resourcefulness,
 ease of use, safety, and aesthetics. The project was first implemented
