@@ -5,7 +5,7 @@ An Alfred University Honors Thesis - Christofer Huber
 For the current URL to access the website:
 https://cjh8.pythonanywhere.com/
 
-Link to the Online Documentation of the Thesis: TBD
+Link to the Online Documentation of the Thesis: https://drive.google.com/file/d/1T5ryxVcsUimQtrNel-qCF5Cvvl0XIDAl/view?usp=sharing
 
 Abstract:
 The project objectives were set with these key ideas: resourcefulness,
